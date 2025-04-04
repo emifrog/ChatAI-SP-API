@@ -24,3 +24,24 @@ tailwindcss : CSS framework
 vue-router : Routing for vue
 typescript : Add types to JS
 
+## Installation
+
+Clone the repository
+Run npm install
+Create a .env file in the root directory and add the following environment variables:
+PORT=5000
+STREAM_API_KEY=""
+STREAM_API_SECRET=""
+OPENAI_API_KEY=""
+DATABASE_URL="postgresql://username:password@localhost:5432/dbname"
+You can get these keys by signing up for Stream, Open AI, and Neon.
+
+Run database migrations with Drizzle Kit:
+npx drizzle-kit generate
+npx drizzle-kit migrate
+This will create the necessary tables in your database.
+
+Run the server with npm run dev and open on http://localhost:5174
+
+Building For Production
+This is a TypeScript project, so you will need to build the project before running in production. Run npm run build to build the project. You can then run the server with npm start. The files will be in the dist directory.
