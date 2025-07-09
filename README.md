@@ -1,37 +1,72 @@
-# ChatAI-SP App
+# ChatAI-SP API
 
-Application full stack similaire à ChatGPT, qui répond aux questions et conserve le contexte tout au long de la conversation. Nous utiliserons Vue.js avec Pinia pour la gestion des états, Node et Express en backend avec TypeScript. Stream pour les fonctionnalités de chat et une base de données Neon PostgreSQL pour stocker les utilisateurs et les journaux de chat.
+Backend de l'application ChatAI-SP, une application full stack similaire à ChatGPT, qui répond aux questions et conserve le contexte tout au long de la conversation. Le backend est construit avec Node.js et Express en TypeScript, utilise Stream pour les fonctionnalités de chat, Deepseek via OpenRouter pour l'IA, et une base de données Neon PostgreSQL avec Drizzle ORM pour stocker les utilisateurs et les journaux de chat.
 
-## Backend dependencies for ChatAI :
+## Fonctionnalités
 
-express : Backend web framework
-cors : Cross-Origin Resource Sharing
-dotenv : Load environment variables from .env file
-stream-chat : Official JS client to work with Stream Chat
-openai : OpenAI API
-typescript : Add types to JavaScript
-tsx : TypeScript with JSX
-drizzle-orm : Database ORM for work with postgres
-drizzle-kit : CLI for drizzle-orm
+- Authentification JWT pour sécuriser les routes
+- Intégration avec Deepseek via OpenRouter pour les réponses IA
+- Stockage des conversations dans une base de données PostgreSQL
+- Gestion des utilisateurs avec mots de passe hachés
+- API RESTful pour communiquer avec le frontend
 
-## Frontend dependencies for ChatAI :
+## Dépendances
 
-vue : Frontend JS Framework
-vite : Dev server & environment
-pinia : State management library
-axios : HTTP library
-tailwindcss : CSS framework
-vue-router : Routing for vue
-typescript : Add types to JS
+- **express** : Framework web backend
+- **cors** : Cross-Origin Resource Sharing
+- **dotenv** : Chargement des variables d'environnement depuis le fichier .env
+- **stream-chat** : Client JS officiel pour travailler avec Stream Chat
+- **axios** : Client HTTP pour les requêtes API
+- **typescript** : Ajout de types à JavaScript
+- **tsx** : TypeScript avec JSX
+- **drizzle-orm** : ORM pour travailler avec PostgreSQL
+- **drizzle-kit** : CLI pour drizzle-orm
+- **jsonwebtoken** : Génération et vérification des tokens JWT
+- **bcrypt** : Hachage des mots de passe
+
+
 
 ## Installation
 
-Clone the repository
-Run npm install
-Create a .env file in the root directory and add the following environment variables:
+1. Cloner le dépôt
+2. Exécuter `npm install`
+3. Créer un fichier `.env` dans le répertoire racine et ajouter les variables d'environnement suivantes :
+
+```
 PORT=5000
-STREAM_API_KEY=""
-STREAM_API_SECRET=""
+STREAM_API_KEY="votre_clé_stream"
+STREAM_API_SECRET="votre_secret_stream"
+DATABASE_URL="votre_url_base_de_données"
+OPENROUTER_API_KEY="votre_clé_openrouter"
+APP_URL="http://localhost:5000"
+JWT_SECRET="votre_secret_jwt"
+```
+
+## Démarrage
+
+```bash
+# Mode développement
+npm run dev
+
+# Construction pour production
+npm run build
+
+# Démarrage en production
+npm start
+```
+
+## Routes API
+
+### Authentification
+- `POST /auth/register` : Inscription d'un nouvel utilisateur
+- `POST /auth/login` : Connexion d'un utilisateur existant
+
+### Chat
+- `POST /chat` : Envoyer un message à l'IA (protégé par JWT)
+- `POST /get-messages` : Récupérer l'historique des messages (protégé par JWT)
+
+### Legacy
+- `POST /register-user` : Ancienne route d'inscription (pour compatibilité)
 OPENAI_API_KEY=""
 DATABASE_URL="postgresql://username:password@localhost:5432/dbname"
 You can get these keys by signing up for Stream, Open AI, and Neon.

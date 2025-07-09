@@ -8,6 +8,13 @@
       "when": 1743686698001,
       "tag": "0000_brainy_nehzno",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1752011220430,
+      "tag": "0001_low_sleepwalker",
+      "breakpoints": true
     }
   ]
 }

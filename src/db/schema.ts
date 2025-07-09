@@ -12,6 +12,7 @@ export const users = pgTable('users', {
   userId: text('user_id').primaryKey(),
   name: text('name').notNull(),
   email: text('email').notNull(),
+  password: text('password').notNull(),  // Champ pour stocker le mot de passe haché
   createdAt: timestamp('created_at').defaultNow().notNull(),
 });
 
