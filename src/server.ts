@@ -7,7 +7,6 @@ import { db } from './config/database.js';
 import { chats, users } from './db/schema.js';
 import { eq } from 'drizzle-orm';
 import bcrypt from 'bcrypt';
-import { ChatCompletionMessageParam } from 'openai/resources';
 import { authMiddleware } from './middleware/auth.js';
 import authRouter from './routes/auth.js';
 
@@ -156,7 +155,7 @@ app.post('/chat', authMiddleware, async (req: Request, res: Response) => {
       console.log('Sending request to OpenRouter...');
       
       const payload = {
-        model: 'deepseek/deepseek-r1-0528:free',  // Utilisation du modèle deepseek/deepseek-r1-0528:free
+        model: 'tngtech/deepseek-r1t2-chimera:free',  // Utilisation du modèle deepseek/deepseek-r1-0528:free
         messages: conversation,
       };
       

@@ -1,6 +1,6 @@
 # ChatAI-SP API
 
-Backend de l'application ChatAI-SP, une application full stack similaire à ChatGPT, qui répond aux questions et conserve le contexte tout au long de la conversation. Le backend est construit avec Node.js et Express en TypeScript, utilise Stream pour les fonctionnalités de chat, Deepseek via OpenRouter pour l'IA, et une base de données Neon PostgreSQL avec Drizzle ORM pour stocker les utilisateurs et les journaux de chat.
+Backend de l'application ChatAI-SP, une application chatbot full stack, qui répond aux questions et conserve le contexte tout au long de la conversation. Le backend est construit avec Node.js et Express en TypeScript, utilise Stream pour les fonctionnalités de chat, Deepseek via OpenRouter pour l'IA, et une base de données Neon PostgreSQL avec Drizzle ORM pour stocker les utilisateurs et les journaux de chat.
 
 ## Fonctionnalités
 
@@ -40,6 +40,7 @@ DATABASE_URL="votre_url_base_de_données"
 OPENROUTER_API_KEY="votre_clé_openrouter"
 APP_URL="http://localhost:5000"
 JWT_SECRET="votre_secret_jwt"
+
 ```
 
 ## Démarrage
@@ -67,7 +68,7 @@ npm start
 
 ### Legacy
 - `POST /register-user` : Ancienne route d'inscription (pour compatibilité)
-OPENAI_API_KEY=""
+OPENROUTER_API_KEY=""
 DATABASE_URL="postgresql://username:password@localhost:5432/dbname"
 You can get these keys by signing up for Stream, Open AI, and Neon.
 
